@@ -92,10 +92,10 @@ def teacher_appointment_list(request):
 		}
 		form = AppointmentForm(request.POST or None)
 		if form.is_valid():
-			    saving=form.save(commit=False)
-			    saving.user=request.user
-			    saving.save()
-			    messages.success(request, 'Post Created Sucessfully')
+			saving=form.save(commit=False)
+			saving.user=request.user
+			saving.save()
+			messages.success(request, 'Post Created Sucessfully')
 		return render(request, 'teacher_create_appointment.html', appointments )
 	else:
 		return redirect('http://127.0.0.1:8000/')
@@ -130,11 +130,11 @@ def teacher_appointment_update(request,id):
 		single_appointment=ingle_appointment= Appointment.objects.get(id=id)
 		form = AppointmentForm(request.POST or None, instance=single_appointment)
 		if form.is_valid():
-			    saving=form.save(commit=False)
-			    saving.user=request.user
-			    saving.save()
-			    messages.success(request, 'Post Created Sucessfully')
-			    return redirect('http://127.0.0.1:8000/teacher/create_appointment/')
+			saving=form.save(commit=False)
+			saving.user=request.user
+			saving.save()
+			messages.success(request, 'Post Created Sucessfully')
+			return redirect('http://127.0.0.1:8000/teacher/create_appointment/')
 			    
 
 		appointments= {

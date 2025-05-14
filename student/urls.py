@@ -10,7 +10,7 @@ from .views import(
 	)
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.home, name='student_home'),
     path('my_appointment/', views.student, name='student'),
     path('quick_appointmnet/', views.quick_appointmnet, name='quick_appointmnet'),   
     path('update/<int:id>/', views.appointment_book,name='appointment_update'),

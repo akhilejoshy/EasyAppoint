@@ -26,7 +26,7 @@ def quick_appointmnet(request):
 		}
 		return render(request, 'student_quick_appointmnet.html', appointments )
 	else:
-		return redirect('http://127.0.0.1:8000/')
+		return redirect('home')
 
 
 def student(request):#this section for my appointment
@@ -48,7 +48,7 @@ def student(request):#this section for my appointment
 		}
 		return render(request, 'student.html', appointments )
 	else:
-		return redirect('http://127.0.0.1:8000/')
+		return redirect('home')
 	
 def home(request):#this section for my appointment
 	group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
@@ -69,7 +69,7 @@ def home(request):#this section for my appointment
 		}
 		return render(request, 'student_home.html', appointments )
 	else:
-		return redirect('http://127.0.0.1:8000/')
+		return redirect('home')
 
 def appointment_book(request, id):#activate after clicking book now button
 	group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
@@ -83,9 +83,9 @@ def appointment_book(request, id):#activate after clicking book now button
 		form.save()
 		#return HttpResponseRedirect (instance.get_absolute_url())
 		#messages.success(request, 'Your profile was updated.')
-		return redirect('http://127.0.0.1:8000/student/')
+		return redirect('student_home')
 	else:
-		return redirect('http://127.0.0.1:8000/')
+		return redirect('home')
 
 
 
