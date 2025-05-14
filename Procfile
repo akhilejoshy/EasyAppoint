@@ -1,1 +1,1 @@
-web: gunicorn Django-appointment-and-booking-system-master.wsgi
+web: django_appointment.wsgi
