@@ -1,1 +1,1 @@
-web: django_appointment.wsgi
+web: gunicorn app.wsgi:application
