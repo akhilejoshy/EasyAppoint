@@ -30,13 +30,15 @@ class CustomLoginView(LoginView):
 
 
 def group_check(request):
-	group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
-	group_name=str(group_name[0]) # convert to string
-
-	if "Student" == group_name:
-		return redirect('student_home')
-	elif "Teacher" == group_name:
-		return redirect('teacher_home')
+    group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
+    group_name=(str(group_name[0]) if group_name else '') # convert to string
+    if "Student" == group_name:
+         return redirect('student_home')
+    elif "Teacher" == group_name:
+         return redirect('teacher_home')
+    
+    elif request.user.username in ['administrator', 'admin']:
+         return redirect('admin:index')
 
 def logout_view(request):
 	logout(request)
